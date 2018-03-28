@@ -1,0 +1,29 @@
+<div class="row" style="margin-top: 60px;margin-left: 0;margin-right: 0">
+	<div class="col-sm-4 offset-4">
+		<form (ngSubmit)="onLogin(f)" #f="ngForm">
+			<div class="form-group">
+				<label for="name">Email: </label>
+				<input type="email"
+				 name="email" 
+				 id="email" 
+				 class="form-control"
+				 ngModel
+				 required>
+			</div>
+				<div class="form-group">
+				<label for="pwd">Password: </label>
+				<input 
+				type="password" 
+				name="pwd" 
+				id="pwd" 
+				class="form-control"
+				ngModel
+				required>
+			</div>
+		<button mat-raised-button [disabled]="!f.valid">Login</button>
+		</form>
+	</div>
+</div>
+<div class="col-sm-4 offset-4" style="margin-top: 30px">
+<p>{{ errorMessage }}</p>
+</div>

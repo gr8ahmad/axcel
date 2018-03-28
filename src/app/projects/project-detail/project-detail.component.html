@@ -1,0 +1,20 @@
+<button mat-raised-button routerLink="/">Home</button>
+<div class="row" style="margin-top: 40px">
+	<div class="col-sm-4 offset-4">
+<mat-card class="example-card" style="cursor: pointer;">
+            <mat-card-header>
+                <!-- <div mat-card-avatar class="example-header-image"></div> -->
+                <mat-card-title>{{ project.name }}</mat-card-title>
+                <!-- <mat-card-subtitle>Dog Breed</mat-card-subtitle> -->
+            </mat-card-header>
+            <img mat-card-image [src]="project.imagePath" style="max-width: 460px" alt="Photo of a Shiba Inu">
+            <mat-card-content>
+                <p>{{ project.description}}</p>
+            </mat-card-content>
+            <mat-card-actions *ngIf="isAllowed">
+    <button mat-raised-button color="primary" (click)="onEditProject()">Edit</button>
+    <button mat-raised-button color="accent" (click)="onDeleteProject()">Delete</button>
+            </mat-card-actions>
+</mat-card>
+</div>
+</div>

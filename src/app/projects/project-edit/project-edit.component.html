@@ -1,0 +1,39 @@
+<button mat-raised-button routerLink="/">Home</button>
+<div class="row">
+	<div class="col-sm-4 offset-4">
+<form [formGroup]="projectForm" (ngSubmit)="onSave()">
+	<div class="form-group">	
+	<label for="projectName">Project Name</label>
+	<input type="text" 
+	name="projectName" 
+	id="projectName" 
+	class="form-control"
+	formControlName="name">
+	</div>
+	<div class="form-group">
+	<label for="imagePath">Image Path</label>
+	<input type="text" 
+	name="imagePath" 
+	id="imagePath" 
+	class="form-control"
+	formControlName="imagePath" 
+	#imagePath>
+	</div>
+	<div class="form-group">
+		<img [src]="imagePath.value" alt="" style="max-width: 460px">
+	</div>
+	<div class="form-group">
+	<label for="projectDesc">Project Description</label>
+	<textarea 
+	name="projectDesc" 
+	id="projectDesc" 
+	class="form-control"
+	formControlName="description" rows="5">
+	</textarea>
+	</div>
+	<div class="form-group">
+		<button type="submit" class="btn btn-default" [disabled]="!projectForm.valid">{{ editMode ? 'Update' : 'Add'}}</button>
+	</div>
+</form>
+	</div>
+</div>

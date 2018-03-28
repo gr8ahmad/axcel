@@ -1,0 +1,20 @@
+<button mat-raised-button routerLink="/">Home</button>
+<span class="admin-buttons" *ngIf="isAllowed">
+<!-- <button mat-raised-button (click)="onStoreData()">Save Data</button>
+<button mat-raised-button (click)="onFetchData()">Fetch Data</button> -->
+<button mat-raised-button (click)="addProject()">Add Project</button>
+</span>
+
+<h2 style="text-align: center">Projects</h2>
+    <mat-grid-list cols="3" rowHeight="1:1">
+        <mat-grid-tile 
+        *ngFor="let projectEl of projects; let i = index" [ngClass]="{'edit-mode': editMode}">
+            <single-project 
+            [project]="projectEl" 
+            [index]="i"
+            ></single-project>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <button mat-raised-button *ngIf="!editMode">Add Project</button>
+    <br><br>
+<mat-divider></mat-divider>
